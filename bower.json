@@ -1,0 +1,30 @@
+{
+  "name": "MyCI3",
+  "homepage": "https://github.com/jccultima123/MyCI3",
+  "authors": [
+    "jccultima123 <johncyrillcorsanes@gmail.com>"
+  ],
+  "description": "My Another Web Prototype using CodeIgniter 3.0.3",
+  "main": "README.MD",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "codeigniter",
+    "php",
+    "mysql",
+    "mvc",
+    "bootstrap"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "assets/ext",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.6"
+  }
+}
