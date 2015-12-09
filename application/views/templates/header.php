@@ -7,7 +7,7 @@
 		<meta name="description" content="">
     	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<link href="<?php echo $this->config->item('ASSETS_URL'); ?>/ext/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-		<!-- <link href="<?php echo $this->config->item('ASSETS_URL'); ?>/ext/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet"> -->
+		<!-- <link href="/ext/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet"> -->
 		<!-- NOTE: Loading too much scripts inside the head tag significally decreases performance -->
 		<script src="<?php echo $this->config->item('ASSETS_URL'); ?>/ext/jquery/dist/jquery.min.js"></script>
 		<script src="<?php echo $this->config->item('ASSETS_URL'); ?>/ext/bootstrap/dist/js/bootstrap.min.js"></script>
