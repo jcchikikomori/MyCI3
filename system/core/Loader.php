@@ -459,6 +459,25 @@ class CI_Loader {
 		return $this->_ci_load(array('_ci_view' => $view, '_ci_vars' => $this->_ci_object_to_array($vars), '_ci_return' => $return));
 	}
 
+	/*
+	 * View Helper : Loads header and footer without calling another view
+	 * Source: http://stackoverflow.com/questions/9540576/header-and-footer-in-codeigniter
+	 */
+
+	public function template($template_name, $vars = array(), $return = FALSE)
+    {
+        if($return):
+            $content = $this->view('templates/header', $vars, $return);
+            $content = $this->view($template_name, $vars, $return);
+            $content = $this->view('templates/footer', $vars, $return);
+            return $content;
+        else:
+            $this->view('templates/header', $vars);
+            $this->view($template_name, $vars);
+            $this->view('templates/footer', $vars);
+        endif;
+    }
+
 	// --------------------------------------------------------------------
 
 	/**

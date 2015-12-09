@@ -96,8 +96,7 @@
     </div>
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </section> -->
-
-<script type="text/javascript" src="../assets/ext/jquery/dist/jquery.min.js"></script>
+>>>>>>> origin/login
 
 <script>
  $(document).ready(function(){
@@ -148,5 +147,3 @@
 
  });
 </script>
-</body>
-</html>
