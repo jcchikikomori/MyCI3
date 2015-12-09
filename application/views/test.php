@@ -26,11 +26,11 @@
 
    var getLoginData = function(){
 
-     // login_data = {
-       // username : $('#login_username').val(),
-       // password : $('#login_password').val()
-     // }
-     // console.log(login_data);
+     login_data = {
+       username : $('#login_username').val(),
+       password : $('#login_password').val()
+     }
+     console.log(login_data);
 
      createLoginRequest();
    }
@@ -38,7 +38,7 @@
    function createLoginRequest(){
 
      $.ajax({
-       url : 'test_controller.php',
+       url : 'test/check',
        type: "POST",
        data: {
              username : $('#login_username').val(),
