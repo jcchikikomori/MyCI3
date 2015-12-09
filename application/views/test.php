@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="8 LayerOJT Devs" content="">
-    <link rel="icon" href="../favicon.ico">
-    <title>Sign In</title>
-    <link href="../assets/ext/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/cust.css" rel="stylesheet">
-</head>
-<body> 
-    <p><br/></p>
-    <p><br/></p>
-    <p><br/></p>
-
-    <div class="container">
+<div class="container">
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-5">
@@ -67,8 +49,6 @@
     </div>
 </div>
 
-<script type="text/javascript" src="../assets/ext/jquery/dist/jquery.min.js"></script>
-
 <script>
  $(document).ready(function(){
 
@@ -105,7 +85,7 @@
            $('#error_message').text('Correct');
          }else if( result == 'incorrect'){
            $('#error_message').css("color", "red");
-           $('#error_message').text('           Your username or password is invalid');
+           $('#error_message').text('Your username or password is invalid');
          }
        },
        // Error Handling
@@ -118,5 +98,3 @@
 
  });
 </script>
-</body>
-</html>
