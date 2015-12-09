@@ -10,15 +10,11 @@
     <title>Sign In</title>
     <link href="../assets/ext/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/cust.css" rel="stylesheet">
-    <!-- <link href="../assets/ext/bootstrap/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
-   <!--  <link href="signin.css" rel="stylesheet"> -->
-    <!-- // <script src="../assets/js/ie-emulation-modes-warning.js"></script> -->
 </head>
 <body> 
     <p><br/></p>
     <p><br/></p>
     <p><br/></p>
-
 
     <div class="container">
     <div class="row">
@@ -71,32 +67,6 @@
     </div>
 </div>
 
-<!--     // <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-
-<!-- <section>
-
-    <div class="container">
-
-      <form class="form-signin">
-        <span id="error_message"></span>
-        <br>
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="login_username" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="login_password" class="form-control" placeholder="*****" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" id="submit_login" onclick="return false;"/>Sign in</button>
-      </form>
-
-    </div>
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-</section> -->
-
 <script type="text/javascript" src="../assets/ext/jquery/dist/jquery.min.js"></script>
 
 <script>
@@ -135,7 +105,7 @@
            $('#error_message').text('Correct');
          }else if( result == 'incorrect'){
            $('#error_message').css("color", "red");
-           $('#error_message').text('Your username or password is invalid');
+           $('#error_message').text('           Your username or password is invalid');
          }
        },
        // Error Handling
