@@ -117,6 +117,14 @@ switch (ENVIRONMENT)
 
 /*
  *---------------------------------------------------------------
+ * ASSET FOLDER NAME
+ *---------------------------------------------------------------
+ *
+ */
+	$asset_folder = 'assets';
+
+/*
+ *---------------------------------------------------------------
  * VIEW FOLDER NAME
  *---------------------------------------------------------------
  *
@@ -268,6 +276,25 @@ switch (ENVIRONMENT)
 		else
 		{
 			$view_folder = APPPATH.'views';
+		}
+	}
+
+	// The path to the "assets" folder
+	if ( ! is_dir($asset_folder))
+	{
+		if ( ! empty($asset_folder) && is_dir(APPPATH.$asset_folder.DIRECTORY_SEPARATOR))
+		{
+			$asset_folder = APPPATH.$asset_folder;
+		}
+		elseif ( ! is_dir(APPPATH.'assets'.DIRECTORY_SEPARATOR))
+		{
+			header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+			echo 'Your assets folder path does not appear to be set correctly. Please install bower dependecies by command ($ bower install): '.SELF;
+			exit(3); // EXIT_CONFIG
+		}
+		else
+		{
+			$asset_folder = APPPATH.'assets';
 		}
 	}
 
