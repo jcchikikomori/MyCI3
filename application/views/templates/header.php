@@ -41,7 +41,7 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 	            <li><a href="<?php echo $this->config->item('APP_HOST'); ?>">Homepage</a></li>
-	            <li><a href="posts">View Posts</a></li>
+	            <li><a href="<?php echo $this->config->item('APP_HOST'); ?>/articles">Articles</a></li>
 	            <!--
 	            <li><a href="#">Something else here</a></li>
 	            <li role="separator" class="divider"></li>
@@ -54,7 +54,7 @@
 	      </ul>
 	      
 	      <ul class="navbar-form navbar-right">
-	          <a href="login" class="btn btn-default">Login</a>
+	          <a href="<?php echo $this->config->item('APP_HOST'); ?>/login" class="btn btn-default">Login</a>
 	      </ul>
 
 	      <ul class="nav navbar-nav navbar-right">
