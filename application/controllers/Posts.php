@@ -13,7 +13,7 @@ class Posts extends CI_Controller {
         $this->load->view('ignored');
     }
 
-    public function crush($q)
+    public function crush($q = NULL)
     {
         switch ($q) {
             case 'boy':

@@ -1,16 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Test extends CI_Controller {
+class Login extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->template('test');
-	}
+		$this->load->template('ex');
+	}	
 
-
-	public function check()
-	{
+	public function check(){
 
         $username = $this->input->post('username');
         $password = $this->input->post('password');
@@ -32,3 +30,4 @@ class Test extends CI_Controller {
     }
 }
 
+?>
