@@ -4,7 +4,7 @@ class Posts extends CI_Controller {
 
     public function index()
     {
-        $this->load->template('index');
+        $this->load->template('posts/index');
     }
 
 }
