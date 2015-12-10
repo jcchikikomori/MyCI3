@@ -2,7 +2,7 @@
 
 <div class="container">
 	<div class="jumbotron">
-		<h1>Welcome to CodeIgniter!</h1>
+		<h1>Yay! Welcome to MyCI3!</h1>
 		<div id="body">
 			<h4>The page you are looking at is being generated dynamically by CodeIgniter.</h4>
 			<h4>If you would like to edit this page you'll find it located at:</h4>
