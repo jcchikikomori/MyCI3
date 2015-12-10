@@ -18,7 +18,7 @@ class Articles extends CI_Controller {
     public function display_comments()
     {
         try {
-            //$data['query']=$this->blog_model->get_article();
+            $data['query']=$this->blog_model->get_article();
             $data['comments']=$this->blog_model->get_comments();
             if (!($data['comments'])) {
                 throw new Exception('no data returned');
