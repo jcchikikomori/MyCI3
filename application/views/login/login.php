@@ -29,7 +29,7 @@
    function createLoginRequest(){
 
      $.ajax({
-       url : 'sample/check',
+       url : 'login/check',
        type: "POST",
        data: {
              username : $('#login_username').val(),

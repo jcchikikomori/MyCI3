@@ -5,7 +5,8 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->template('ex');
+        // login1 was the login form with city background
+		$this->load->template('login/login1');
 	}	
 
 	public function check(){
