@@ -30,7 +30,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">MyCI3</a>
+	      <a class="navbar-brand" href="<?php echo $this->config->item('APP_HOST'); ?>">MyCI3</a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,7 +39,7 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="test">Homepage</a></li>
+	            <li><a href="<?php echo $this->config->item('APP_HOST'); ?>">Homepage</a></li>
 	            <li><a href="posts">View Posts</a></li>
 	            <!--
 	            <li><a href="#">Something else here</a></li>
@@ -51,16 +51,16 @@
 	          </ul>
 	        </li>
 	      </ul>
-	      <form class="navbar-form navbar-left" role="search">
-	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Search">
-	        </div>
-	        <button type="submit" class="btn btn-default">Submit</button>
-	      </form>
+	      
+	      <ul class="navbar-form navbar-right">
+	          <a href="login" class="btn btn-default">Login</a>
+	      </ul>
+
 	      <ul class="nav navbar-nav navbar-right">
 	        <!-- <li><a href="#">Sign In</a></li> -->
-	        <li><a>(c) <?php echo date('Y'); ?> jccultima123 / Ellis Lab</a></li>
+	        <li><a>(c) <?php echo date('Y'); ?> C.T.T.M. Department</a></li>
 	      </ul>
+
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
