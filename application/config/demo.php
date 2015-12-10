@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['APP_HOST'] = 'http://' . $_SERVER['HTTP_HOST'] .'/myci';
+$config['APP_HOST'] = 'http://' . $_SERVER['HTTP_HOST'] .'';
 $config['URL'] = $config['APP_HOST'];
 
 //loading assets
