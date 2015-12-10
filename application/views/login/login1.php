@@ -72,7 +72,6 @@
     </div>
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </section> -->
->>>>>>> origin/login
 
 <script>
  $(document).ready(function(){
