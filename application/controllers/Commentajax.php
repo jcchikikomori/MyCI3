@@ -1,7 +1,8 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
 <?php
-// if($_POST)
-// {
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Commentajax extends CI_Controller {
@@ -19,7 +20,7 @@ class Commentajax extends CI_Controller {
 	 *
 	 * So any other public methods not prefixed with an underscore will
 	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
+	 * *@*see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function comnt()
 	{
@@ -37,11 +38,14 @@ class Commentajax extends CI_Controller {
 	else {
 		alert("ERROR");
 	}}}
-	?>
 
+	?>
+ 	
 	<li class="box">
 	<img src="http://www.gravatar.com/avatar.php?gravatar_id=
 	<?php echo $image; ?>"/>
-	<?php echo $name;?><br />
+	<?php echo $name; ?> <br />
 	<?php echo $comment; ?>
 	</li>
+</body>
+</html>
