@@ -21,7 +21,7 @@ class Commentajax extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function cmnt()
+	public function comnt()
 	{
 	$this->load->view('comment');
 
@@ -36,7 +36,7 @@ class Commentajax extends CI_Controller {
 	}
 	else {
 		alert("ERROR");
-	}
+	}}}
 	?>
 
 	<li class="box">
@@ -45,4 +45,3 @@ class Commentajax extends CI_Controller {
 	<?php echo $name;?><br />
 	<?php echo $comment; ?>
 	</li>
-}}
