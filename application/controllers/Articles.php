@@ -7,12 +7,22 @@ class Articles extends CI_Controller {
     {
         //Core controller constructor
         parent::__construct();
+        // $this->load->helper('url');
+        // $this->load->database();
         $this->load->model('blog_model');
     }
 
-    public function index()
+    public function index($ar_id = NULL)
     {
-        $this->load->template('articles/index');
+        $data['query'] = $this->blog_model->get_article();
+        $this->load->template('articles/index', $data);
+    }
+
+    public function details($ar_id)
+    {
+        $data['details'] = $this->blog_model->get_article($ar_id);
+        // $data['comments']=$this->blog_model->get_comments();
+        $this->load->template('articles/details', $data);
     }
 
     public function display_comments()

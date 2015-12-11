@@ -1,5 +1,5 @@
   <?php
-      foreach($query->result() as $row)
+      foreach($query as $row)
 {
 ?>
       <div class="panel panel-default">
