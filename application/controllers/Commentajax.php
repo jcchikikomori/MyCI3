@@ -32,7 +32,7 @@ class Commentajax extends CI_Controller {
 	$comment=$_POST['comment'];
 	$lowercase = strtolower($email);
 	$image = md5( $lowercase );
-	mysql_query("insert into comments (name, email, comment) values ($name, $email, $comment) ");
+	mysql_query("INSERT INTO comments (name,email,comment) VALUES ('$name','$email','$comment') ") ;
 	}
 	else {
 		alert("ERROR");
