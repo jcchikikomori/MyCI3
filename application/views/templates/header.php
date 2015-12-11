@@ -12,6 +12,7 @@
 		<!-- NOTE: Loading too much scripts inside the head tag significally decreases performance -->
 		<script src="<?php echo $this->config->item('ASSETS_URL'); ?>/ext/jquery/dist/jquery.min.js"></script>
 		<script src="<?php echo $this->config->item('ASSETS_URL'); ?>/ext/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="<?php echo $this->config->item('ASSETS_URL'); ?>/app.js"></script>
 		<style>
 			body {
 				/* Bootstrap fixed header requirement */
