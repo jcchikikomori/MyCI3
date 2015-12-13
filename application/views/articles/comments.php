@@ -53,53 +53,37 @@
 </html>
  
 <script>
-        
-        $(document).ready(function () {
-         var article_id = $("#article").val();
-         $.post('<?php echo base_url();?>index.php/welcome/displaycomments/',
-                                                  {
-                                                   article_id:article_id
-                                                  
-                                                  },
-                                                  function(data)
-  {
-                                                    
-    $("#display_comment").html(data);
-  });
-         });
-        
-    
-      
-    
-$(function() {
-$("#submit").click(function()
-{
-var name = $("#name").val();
-var email = $("#email").val();
-var comment = $("#comment").val();
-var article_id = $("#article").val();
-var dataString = 'name='+ name + '&email=' + email + '&comment=' + comment+ '&article_id=' + article_id;
-if(name=='' || email=='' || comment=='')
-{
-alert('Please Give Valid Details');
-}
-else
-{
-//$("#display_comment").show();
-$("#display_comment").fadeIn(100).html('<img src="<?php echo base_url();?>uploads/ajax-loader.gif" />Loading Comment...');
-$.ajax({
-type: "POST",
-url: "<?php echo base_url();?>index.php/welcome/insert_comments/",
-data: dataString,
-cache: false,
-success: function(data){
-    
-$("#display_comment").html(data);
-$("#display_comment").fadeIn(slow);
-}
-});
-}return false;
- 
-}); });
- 
+    $(document).ready(function () {
+        var article_id = $("#article").val();
+        $.post('<?php echo base_url();?>index.php/welcome/displaycomments/', {
+                article_id:article_id
+            }, function(data) {
+            $("#display_comment").html(data);
+        });
+    });
+    $(function() {
+        $("#submit").click(function() {
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var comment = $("#comment").val();
+            var article_id = $("#article").val();
+            var dataString = 'name='+ name + '&email=' + email + '&comment=' + comment+ '&article_id=' + article_id;
+            if(name=='' || email=='' || comment=='') {
+                alert('Please Give Valid Details');
+            } else {
+            //$("#display_comment").show();
+            $("#display_comment").fadeIn(100).html('<img src="<?php echo base_url();?>uploads/ajax-loader.gif" />Loading Comment...');
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url();?>index.php/welcome/insert_comments/",
+                    data: dataString,
+                    cache: false,
+                    success: function(data){
+                        $("#display_comment").html(data);
+                        $("#display_comment").fadeIn(slow);
+                    }
+                });
+            } return false;
+        });
+    });
 </script>
