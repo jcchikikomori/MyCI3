@@ -30,13 +30,18 @@ class Comment extends CI_Controller {
 
     }
 
+    /**
+     * Displaying Comment
+     * @param null $id Which Article ID is commented
+     * @return string
+     */
     public function display($id = NULL)
     {
         try {
             $data['comments'] = $this->blog_model->get_comments($id);
             return $this->load->view('articles/display_comments',$data);
         } catch (Exception $e) {
-            return $e;
+            return $e . 'Variable: ' . $id;
         }
     }
 

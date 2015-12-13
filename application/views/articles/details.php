@@ -35,22 +35,37 @@
 <script>
 	// execute when the HTML file's (document object model: DOM) has loaded
 	$(document).ready(function () {
-		var article_id = $("#article").val();
-		$.post('<?php echo $this->config->item('URL'); ?>/comment/display', {article_id:article_id},
-			function(data) {
-				$("#display_comment").html(data);
+		//get article id for comments
+		var id = $("#article").val();
+
+		//create a function first
+		function getComments(id) {
+			$.ajax({
+				type: 'POST',
+				//TODO: Using append in url ( + id, ) is the temp solution
+				url: '<?php echo $this->config->item('URL'); ?>/comment/display/' + id,
+				success: function(data) {
+					$("#display_comment").html(data).hide();
+					$("#display_comment").delay(200).slideDown();
+				},
+				error: function() {
+					$("#display_comment").html('No Comments');
+				}
 			});
+		}
+
+		//then call it
+		getComments(id);
 	});
 	$(function() {
 		$("#submit").click(function() {
 			var comment = $("#comment").val();
 			var article_id = $("#article").val();
-			var dataString = 'name='+ name + '&email=' + email + '&comment=' + comment+ '&article_id=' + article_id;
+			var dataString = 'name='+ name + '&comment=' + comment+ '&article_id=' + article_id;
 			if(comment=='') {
 				alert('Please Give Valid Details');
 			} else {
-				$("#display_comment").show();
-				$("#display_comment").fadeIn(100).html('<p>Submitting new Comment...</p>');
+				$("#display_comment").fadeIn(100).append('<div class="alert alert-info">Submitting new Comment...</div>');
 				$.ajax({
 					type: "POST",
 					url: "<?php echo $this->config->item('URL'); ?>/comment/submit",
@@ -58,7 +73,7 @@
 					cache: false,
 					success: function(data){
 						$("#display_comment").html(data);
-						$("#display_comment").fadeIn(slow);
+						//$("#display_comment").fadeIn(data);
 					}
 				});
 			} return false;
