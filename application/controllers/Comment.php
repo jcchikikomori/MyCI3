@@ -3,21 +3,41 @@
 // Comment System
 class Comment extends CI_Controller {
 
-	//Comment id
-	public function id(id)
+    public $data;
+    public function __construct()
     {
-        $this->load->template('index');
+        //Core controller constructor
+        parent::__construct();
+        $this->load->model('blog_model');
+    }
+
+	//Comment id
+	public function id($id)
+    {
+     $this->load->template('index');
     }
 
 	//Create
     public function submit()
     {
         if ($_POST) {
-        	// do some database actions here
+            $insertinfo=$this->blog_model->insertcomments_article();
+            $data['comments']=$this->blog_model->get_comments();
+            echo $this->load->template('articles/commentdisplay',$data);
         } else {
         	// false
         }
 
+    }
+
+    public function display($id = NULL)
+    {
+        try {
+            $data['comments'] = $this->blog_model->get_comments($id);
+            return $this->load->view('articles/display_comments',$data);
+        } catch (Exception $e) {
+            return $e;
+        }
     }
 
 }
