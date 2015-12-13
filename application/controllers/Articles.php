@@ -7,8 +7,6 @@ class Articles extends CI_Controller {
     {
         //Core controller constructor
         parent::__construct();
-        // $this->load->helper('url');
-        // $this->load->database();
         $this->load->model('blog_model');
     }
 
@@ -21,35 +19,8 @@ class Articles extends CI_Controller {
     public function details($ar_id)
     {
         $data['details'] = $this->blog_model->get_article($ar_id);
-        // $data['comments']=$this->blog_model->get_comments();
+        $data['comments'] = $this->blog_model->get_comments($ar_id);
         $this->load->template('articles/details', $data);
-    }
-
-    public function display_comments()
-    {
-        try {
-            $data['query']=$this->blog_model->get_article();
-            $data['comments']=$this->blog_model->get_comments();
-            if (!($data['comments'])) {
-                throw new Exception('no data returned');
-            }
-            $this->load->template('articles/comments', $data);
-        } catch (Exception $e) {
-            $this->load->template('welcome_message');
-        }
-
-    }
-    public function insert_comments()
-    {
-        $insertinfo=$this->blog_model->insertcomments_article();
-        //$data['comments']=$this->blog_model->get_latestcomment();
-        $data['comments']=$this->blog_model->get_comments();
-        echo $this->load->template('articles/commentdisplay',$data);
-    }
-    public function displaycomments()
-    {
-        $data['comments']=$this->blog_model->get_comments();
-        echo $this->load->template('articles/commentdisplay',$data);
     }
 
 }
