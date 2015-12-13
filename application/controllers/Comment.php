@@ -21,11 +21,11 @@ class Comment extends CI_Controller {
     public function submit()
     {
         if ($_POST) {
-            $insertinfo=$this->blog_model->insertcomments_article();
+            $this->blog_model->insert_comments_article();
             $data['comments']=$this->blog_model->get_comments();
-            echo $this->load->template('articles/commentdisplay',$data);
+            return $this->load->view('articles/display_comments',$data);
         } else {
-        	// false
+        	return false;
         }
 
     }
