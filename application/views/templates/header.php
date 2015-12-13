@@ -7,10 +7,12 @@
 		<meta name="description" content="">
     	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<link href="<?php echo $this->config->item('ASSETS_URL'); ?>/ext/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="<?php echo $this->config->item('ASSETS_URL'); ?>/cust.css" rel="stylesheet">
 		<!-- <link href="/ext/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet"> -->
 		<!-- NOTE: Loading too much scripts inside the head tag significally decreases performance -->
 		<script src="<?php echo $this->config->item('ASSETS_URL'); ?>/ext/jquery/dist/jquery.min.js"></script>
 		<script src="<?php echo $this->config->item('ASSETS_URL'); ?>/ext/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="<?php echo $this->config->item('ASSETS_URL'); ?>/app.js"></script>
 		<style>
 			body {
 				/* Bootstrap fixed header requirement */
@@ -30,7 +32,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="<?php echo $this->config->item('APP_HOST'); ?>">MyCI3</a>
+	      <a class="navbar-brand" href="<?php echo $this->config->item('URL'); ?>">MyCI3</a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,8 +41,8 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="<?php echo $this->config->item('APP_HOST'); ?>">Homepage</a></li>
-	            <li><a href="posts">View Posts</a></li>
+	            <li><a href="<?php echo $this->config->item('URL'); ?>">Homepage</a></li>
+	            <li><a href="<?php echo $this->config->item('URL'); ?>/articles">Articles</a></li>
 	            <!--
 	            <li><a href="#">Something else here</a></li>
 	            <li role="separator" class="divider"></li>
@@ -53,7 +55,7 @@
 	      </ul>
 	      
 	      <ul class="navbar-form navbar-right">
-	          <a href="login" class="btn btn-default">Login</a>
+	          <a href="<?php echo $this->config->item('URL'); ?>/login" class="btn btn-default">Login</a>
 	      </ul>
 
 	      <ul class="nav navbar-nav navbar-right">
