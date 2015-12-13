@@ -1,6 +1,36 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Blog_model extends CI_Model {
+
+    function __construct()
+    {
+      // Call the Model constructor
+      parent::__construct();
+    }
+
+    public function get_article($id = NULL)
+    {
+        if (isset($id)) {
+            return $this->db
+                    ->select('*')
+                    ->where('article_id', $id)
+                    ->get('blog_articles')
+                    ->row_array();
+        } else {
+            $sql = "SELECT * FROM blog_articles";
+            $query = $this->db->query($sql);
+            $result = $query->result();
+            return $result;
+        }
+    }
+
+    // public function get_ar($id = NULL)
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('blog_articles');        
+    //     $this->db->where('article_id', $id);
+    //     return $this->db->get();
+    // }
   
     //insert comments
     public function insertcomments_article()
