@@ -82,8 +82,8 @@
 					data: dataString,
 					cache: false,
 					success: function(data){
-						$("#display_comment").delay(500).fadeOut(300);
-						$("#display_comment").html(data).delay(100).fadeIn();
+						//$("#display_comment").delay(500).fadeOut(300);
+						$("#display_comment").html(data).delay(300).fadeIn();
 					}
 					//error: function() {
 					//	$("#display_comment").append('<div class="alert alert-danger">Sorry! Unable to submit comment. Please try again</div>');
