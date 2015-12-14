@@ -18,25 +18,30 @@ class Comment extends CI_Controller {
     }
 
 	//Create
-    public function submit()
+    public function submit($id)
     {
         if ($_POST) {
-            $insertinfo=$this->blog_model->insertcomments_article();
-            $data['comments']=$this->blog_model->get_comments();
-            echo $this->load->template('articles/commentdisplay',$data);
+            $this->blog_model->insert_comments_article();
+            $data['comments']=$this->blog_model->get_comments($id);
+            return $this->load->view('articles/display_comments',$data);
         } else {
-        	// false
+        	return false;
         }
 
     }
 
+    /**
+     * Displaying Comment
+     * @param null $id Which Article ID is commented
+     * @return string
+     */
     public function display($id = NULL)
     {
         try {
             $data['comments'] = $this->blog_model->get_comments($id);
             return $this->load->view('articles/display_comments',$data);
         } catch (Exception $e) {
-            return $e;
+            return $e . 'Variable: ' . $id;
         }
     }
 

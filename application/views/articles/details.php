@@ -18,15 +18,17 @@
 				<div class="panel-heading">
 					<b>Comments - <?php echo $details['title']; ?></b>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body" id="comments" style="display: none;">
 					<div id="display_comment"></div>
 					<form class="form-horizontal" method="post" id="form">
 						<input type="hidden" id="article" value="<?php echo $details['article_id'];?>">
 						<input type="hidden" id="name" name="name" value="pogi ang post nito">
+						<input type="hidden" id="email" name="email" value="sample@ako.com">
 						<textarea type="text" class="form-control" rows="4" id="comment" name="comment" placeholder="Leave some comment!"></textarea><br />
 						<input class="btn btn-primary pull-right" id="submit" name="submit" type="submit" value="Submit Comment">
 					</form>
 				</div>
+				<div class="panel-footer"></div>
 			</div>
 		</div>
 	</div>
@@ -35,31 +37,57 @@
 <script>
 	// execute when the HTML file's (document object model: DOM) has loaded
 	$(document).ready(function () {
-		var article_id = $("#article").val();
-		$.post('<?php echo $this->config->item('URL'); ?>/comment/display', {article_id:article_id},
-			function(data) {
-				$("#display_comment").html(data);
+
+		//get article id for comments
+		var id = $("#article").val();
+
+		//create a function first
+		function getComments(id) {
+			$.ajax({
+				//TODO: Using append in url ( + id, ) is the temp solution
+				url: '<?php echo $this->config->item('URL'); ?>/comment/display/' + id,
+				success: function(data) {
+					if (data) {
+						$("#display_comment").html(data);
+					} else {
+						$("#display_comment").html('<div class="alert alert-info">No Comments</div>');
+					}
+				},
+				error: function() {
+					$("#display_comment").html('<div class="alert alert-danger">Unable to fetch Comments</div>');
+				}
 			});
+			$("#comments").delay(400).slideDown(300);
+		}
+
+		//then call it
+		getComments(id);
 	});
 	$(function() {
 		$("#submit").click(function() {
+			var name = $("#name").val();
+			var email = $("#email").val();
 			var comment = $("#comment").val();
 			var article_id = $("#article").val();
+
 			var dataString = 'name='+ name + '&email=' + email + '&comment=' + comment+ '&article_id=' + article_id;
 			if(comment=='') {
-				alert('Please Give Valid Details');
+				$("#display_comment").append('<div class="alert alert-danger">ERR! Please provide details below</div>');
+				//alert('Please Give Valid Details');
 			} else {
-				$("#display_comment").show();
-				$("#display_comment").fadeIn(100).html('<p>Submitting new Comment...</p>');
+				$("#display_comment").fadeIn(100).html('<div class="alert alert-info">Submitting new Comment...</div>');
 				$.ajax({
 					type: "POST",
-					url: "<?php echo $this->config->item('URL'); ?>/comment/submit",
+					url: "<?php echo $this->config->item('URL'); ?>/comment/submit/" + article_id,
 					data: dataString,
 					cache: false,
 					success: function(data){
-						$("#display_comment").html(data);
-						$("#display_comment").fadeIn(slow);
+						//$("#display_comment").delay(500).fadeOut(300);
+						$("#display_comment").html(data).delay(300).fadeIn();
 					}
+					//error: function() {
+					//	$("#display_comment").append('<div class="alert alert-danger">Sorry! Unable to submit comment. Please try again</div>');
+					//}
 				});
 			} return false;
 		});

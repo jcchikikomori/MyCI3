@@ -38,6 +38,10 @@ class Blog_model extends CI_Model {
         return $this->db
             ->select('*')
             ->where('cmt_article_id', $id)
+            //SAMPLE JOIN
+            //->join('blog_articles', 'blog_articles.article_id = blog_comments.cmt_article_id', 'left')
+            // Produces: LEFT JOIN blog_articles ON blog_articles.article_id = blog_comments.cmt_article_id
+            //->join('users', 'blog_comments.user_id = users.user_id', 'inner')
             ->get('blog_comments')
             ->result();
         /*
@@ -49,18 +53,17 @@ class Blog_model extends CI_Model {
     }
   
     //insert comments
-    public function insertcomments_article()
+    public function insert_comments_article()
     {
          $this->load->helper('date');
-         $name=$this->input->post('name');
-         $email=$this->input->post('email');
-         $article_id=$this->input->post('article_id');
-         $comment=$this->input->post('comment');
-         $datestring = "%Y-%m-%d - %h:%i %a";
+         $name = $this->input->post('name');
+         $email = $this->input->post('email');
+         $article_id = $this->input->post('article_id');
+         $comment = $this->input->post('comment');
+         $date_string = "%Y-%m-%d - %h:%i %a";
          $time = time();
-         $date= mdate($datestring, $time);
-         $insertcomment = $this->db->insert('blog_comments',array('name'=>$name ,'emailid'=>$email,'comment'=>$comment,'time'=>$date,'cmt_article_id'=>$article_id));
-         return $insertcomment;      
+         $date= mdate($date_string, $time);
+         return $this->db->insert('blog_comments',array('name'=>$name ,'email'=>$email,'comment'=>$comment,'time'=>$date,'cmt_article_id'=>$article_id));
     }
 
     public function get_latestcomment()
