@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Test_controller extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,6 +20,29 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->template('welcome_message');
+		$this->load->view('test');
 	}
+
+
+	public function check(){
+
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+
+        $response = $username + $password;
+        // Manipulation Here
+        // if($username == 'toper'){
+
+        //     if($password == '123123'){
+        //         $response = 'correct';
+        //     }else{
+        //         $response = 'incorrect';
+        //     }
+        // }else{
+        //     $response = 'incorrect';
+        // }
+        print_r($response);
+
+    }
 }
+

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Sample extends CI_Controller {
+class Home extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,32 +18,8 @@ class Sample extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-
 	public function index()
 	{
-		$this->load->view('ex');
-	}	
-
-public function check(){
-
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
-
-        $response = "";
-        // Manipulation Here
-        if($username == 'toper'){
-
-            if($password == '123123'){
-                $response = 'correct';
-            }else{
-                $response = 'incorrect';
-            }
-        }else{
-            $response = 'incorrect';
-        }
-        print_r($response);
-
-    }
+		$this->load->template('welcome_message');
+	}
 }
-
-?>

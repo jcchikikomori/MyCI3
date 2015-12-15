@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head><title>Sample</title>
-</head>
-<body>
-
 <section>
  <form>
    <span id="error_message"></span>
@@ -13,8 +7,6 @@
    <button type="submit" id="submit_login" onclick="return false;"/>Submit</button>
  </form>
 </section>
-
-<script type="text/javascript" src="../assets/ext/jquery/dist/jquery.min.js"> </script>
 
 <script>
  $(document).ready(function(){
@@ -37,7 +29,7 @@
    function createLoginRequest(){
 
      $.ajax({
-       url : 'sample/check',
+       url : 'login/check',
        type: "POST",
        data: {
              username : $('#login_username').val(),
@@ -65,5 +57,3 @@
 
  });
 </script>
-</body>
-</html>
