@@ -1,11 +1,12 @@
 /* Applied CSS  */
 
 body { 
- background: url('city.jpeg') no-repeat center center fixed;
+ background: url('city.jpeg') no-repeat center center;
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
  background-size: cover;
+ padding-bottom: 70px;
 }
 
 .panel-default {
