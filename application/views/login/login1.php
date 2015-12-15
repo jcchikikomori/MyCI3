@@ -97,15 +97,15 @@
            <div class="panel-body">
              <form class="form-horizontal" role="form">
                <div class="form-group">
-                 <label for="inputEmail" class="col-sm-3 control-label">Email</label>
+                 <label for="inputEmail" class="col-sm-3 control-label">User Name</label>
                    <div class="col-sm-9">
-                   		<input type="email" class="form-control" id="login_username" placeholder="Email" required>
+                   		<input type="email" class="form-control" id="login_username" name="login_username" placeholder="Email" required>
                    </div>
                </div>
                <div class="form-group">
                 <label for="inputPassword" class="col-sm-3 control-label">Password</label>
                 <div class="col-sm-9">
-                  <input type="password" class="form-control" id="login_password" placeholder="******" required>
+                  <input type="password" class="form-control" id="login_password" name="login_password" placeholder="******" required>
                 </div>
                </div>
                <span id="error_message"></span>
@@ -164,7 +164,6 @@
              username : $q('#login_username').val(),
              password : $('#login_password').val()
              },
-        */
        success: function(result){
          console.log(result);
          if(result == 'correct'){
@@ -179,6 +178,7 @@
        error: function(){
 
        }
+       */
      });
    }
    
