@@ -31,14 +31,15 @@ class Login_model extends CI_Model {
 				if ($hash == $user_query['user_password']) {
 				 //preparing array for session
 				 $newdata = array(
+					   'user_id'   => $user_query['user_id'],
 					   'username'  => $username,
 					   'email'     => $user_query['user_email'],
 					   'logged_in' => TRUE
 							);
 							//set session
 							$this->session->set_userdata($newdata);
-							//within 1200 seconds
-							$this->session->mark_as_temp($newdata, 1200);
+							//TODO: incorrect session expiration value
+							//$this->session->mark_as_temp($newdata, 1200);
 					return true;
 				}
 			  }
