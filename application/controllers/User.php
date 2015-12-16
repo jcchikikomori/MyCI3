@@ -5,7 +5,6 @@ class User extends CI_Controller
 {
 
     public $data;
-
     public function __construct()
     {
         //Core controller constructor
@@ -21,12 +20,11 @@ class User extends CI_Controller
 
     public function login()
     {
-        Auth::class
         if ($_POST) {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
             $query = $this->login_model->login($username, $password);
-            if ($query) {
+            if ($query == TRUE) {
                 redirect($this->config->item('URL'));
                 exit;
             } else {
