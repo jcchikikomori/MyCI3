@@ -55,7 +55,7 @@
 	      </ul>
 	      
 	      <ul class="navbar-form navbar-right">
-	          <a href="<?php echo $this->config->item('URL'); ?>/login" class="btn btn-default">Login</a>
+	          <a href="<?php echo $this->config->item('URL'); ?>/user" class="btn btn-default">Login</a>
 	      </ul>
 
 	      <ul class="nav navbar-nav navbar-right">

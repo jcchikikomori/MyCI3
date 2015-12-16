@@ -1,109 +1,171 @@
-    <div class="container">
-    <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-5">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <span class="glyphicon glyphicon-lock"></span><strong> Sign in</strong></div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form">
-                    <div class="form-group">
-                        <label for="inputEmail" class="col-sm-3 control-label">
-                            Email</label>
-                        <div class="col-sm-9">
-                            <input type="email" class="form-control" id="login_username" placeholder="Email" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword" class="col-sm-3 control-label">
-                            Password</label>
-                        <div class="col-sm-9">
-                            <input type="password" class="form-control" id="login_password" placeholder="******" required>
-                        </div>
-                    </div>
-                    <span id="error_message"></span>
-                    <div class="form-group">
-                        <div class="col-sm-offset-3 col-sm-9">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"/>
-                                    Remember me
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group last">
-                        <div class="col-sm-offset-3 col-sm-9">
-                            <button type="submit" class="btn btn-success btn-sm" id="submit_login" onclick="return false;"/>
-                                Sign in</button>
-                                 <button type="reset" class="btn btn-default btn-sm">
-                                Reset</button>
-                        </div>
-                    </div>
-                    </form>
+<div class="container" id="login_form">
+  <div class="row">
+    <!-- <div class="col-md-3"></div> -->
+      <div class="col-md-5 col-md-offset-3">
+      
+      	 <div class="panel panel-default">
+           <div class="panel-heading">
+              <span class="glyphicon glyphicon-lock"></span><strong> Sign in</strong>
+           </div>
+           <div class="panel-body">
+             <form class="form-horizontal" role="form">
+               <div class="form-group">
+                 <label for="inputEmail" class="col-sm-3 control-label">Email</label>
+                   <div class="col-sm-9">
+                   		<input type="email" class="form-control" id="login_username" placeholder="Email" required>
+                   </div>
+               </div>
+               <div class="form-group">
+                <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" id="login_password" placeholder="******" required>
                 </div>
-                <div class="panel-footer">
-                    Not Registred? <a href="register.html">Register here</a></div>
-            </div>
-        </div>
-    </div>
+               </div>
+               <span id="error_message"></span>
+               <div class="form-group">
+                 <div class="col-sm-offset-3 col-sm-9">
+                   <div class="checkbox">
+                     <label><input type="checkbox"/>Remember me</label>
+                   </div>
+                 </div>
+               </div>
+               <div class="form-group last">
+                <div class="col-sm-offset-3 col-sm-9">
+                  <button type="submit" class="btn btn-success btn-sm" id="submit_login" onclick="return false;"/>Sign in</button>
+                  <button type="reset" class="btn btn-default btn-sm">Reset</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        	<div class="panel-footer">
+            Not Registred? <a id="register" onclick="switch();">Register here</a></div>
+       		</div>
+       </div>
+       
+       <div class="panel panel-default" id="register_form" style="display: none;">
+           <div class="panel-heading">
+              <span class="glyphicon glyphicon-pencil"></span><strong> Register</strong>
+           </div>
+           <div class="panel-body">
+             <form class="form-horizontal" role="form">
+               <div class="form-group">
+                 <label for="inputEmail" class="col-sm-3 control-label">Email</label>
+                   <div class="col-sm-9">
+                   		<input type="email" class="form-control" id="login_username" placeholder="Email" required>
+                   </div>
+               </div>
+               <div class="form-group">
+                <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" id="login_password" placeholder="******" required>
+                </div>
+               </div>
+               <span id="error_message"></span>
+               <div class="form-group">
+                 <div class="col-sm-offset-3 col-sm-9">
+                   <div class="checkbox">
+                     <label><input type="checkbox"/>Remember me</label>
+                   </div>
+                 </div>
+               </div>
+               <div class="form-group last">
+                <div class="col-sm-offset-3 col-sm-9">
+                  <button type="submit" class="btn btn-success btn-sm" id="submit_login" onclick="return false;"/>Sign in</button>
+                  <button type="reset" class="btn btn-default btn-sm">Reset</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        	<div class="panel-footer">
+            Not Registred? <a href="register.html">Register here</a></div>
+       		</div>
+       </div>
+       
+     </div>
+   </div>
 </div>
 
-<!-- <section>
+<div class="container" id="register_form">
+  <div class="row">
+    <!-- <div class="col-md-3"></div> -->
+      <div class="col-md-5 col-md-offset-3">
+       
+       <div class="panel panel-default" style="display: none;">
+           <div class="panel-heading">
+              <span class="glyphicon glyphicon-pencil"></span><strong> Register</strong>
+           </div>
+           <div class="panel-body">
+             <form class="form-horizontal" role="form">
+               <div class="form-group">
+                 <label for="inputEmail" class="col-sm-3 control-label">User Name</label>
+                   <div class="col-sm-9">
+                   		<input type="email" class="form-control" id="login_username" name="login_username" placeholder="Email" required>
+                   </div>
+               </div>
+               <div class="form-group">
+                <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" id="login_password" name="login_password" placeholder="******" required>
+                </div>
+               </div>
+               <span id="error_message"></span>
+               <div class="form-group">
+                 <div class="col-sm-offset-3 col-sm-9">
+                   <div class="checkbox">
+                     <label><input type="checkbox"/>Remember me</label>
+                   </div>
+                 </div>
+               </div>
+               <div class="form-group last">
+                <div class="col-sm-offset-3 col-sm-9">
+                  <button type="submit" class="btn btn-success btn-sm" id="submit_login" onclick="return false;"/>Sign in</button>
+                  <button type="reset" class="btn btn-default btn-sm">Reset</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        	<div class="panel-footer">
+            Not Registred? <a href="register.html">Register here</a></div>
+       		</div>
+       </div>
+       
+     </div>
+   </div>
+</div>
 
-    <div class="container">
 
-      <form class="form-signin">
-        <span id="error_message"></span>
-        <br>
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="login_username" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="login_password" class="form-control" placeholder="*****" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" id="submit_login" onclick="return false;"/>Sign in</button>
-      </form>
-
-    </div>
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-</section> -->
 
 <script>
  $(document).ready(function(){
-
+ 
+ 	 $("#register").on('click',function(){
+ 	 	$("#login_form").hide();
+    $("#register_form").show();
+   });`
+ 
    $('#submit_login').on('click',function(){
      getLoginData();
    });
-
    var getLoginData = function(){
-
      login_data = {
        username : $('#login_username').val(),
        password : $('#login_password').val()
      }
      console.log(login_data);
-
-     createLoginRequest();
+     login(username, password);
    }
 
-   function createLoginRequest(){
-
+   function login(username, password) {
      $.ajax({
-       url : 'test/check',
+       url : 'user/login',
        type: "POST",
+       /*
        data: {
-             username : $('#login_username').val(),
+             username : $q('#login_username').val(),
              password : $('#login_password').val()
              },
-
        success: function(result){
          console.log(result);
-
          if(result == 'correct'){
            $('#error_message').css("color", "green");
            $('#error_message').text('Correct');
@@ -116,9 +178,9 @@
        error: function(){
 
        }
+       */
      });
-
    }
-
+   
  });
 </script>
