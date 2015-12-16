@@ -20,6 +20,11 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->template('welcome_message');
+		//You may see Auth.php in application/libraries
+		if ($this->auth->logged_in()) {
+			$this->load->template('logged_in_message');
+		} else {
+			$this->load->template('welcome_message');
+		}
 	}
 }
