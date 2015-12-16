@@ -11,12 +11,6 @@ class Comment extends CI_Controller {
         $this->load->model('blog_model');
     }
 
-	//Comment id
-	public function id($id)
-    {
-     $this->load->template('index');
-    }
-
 	//Create
     public function submit($id)
     {
