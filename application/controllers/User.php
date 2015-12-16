@@ -15,7 +15,7 @@ class User extends CI_Controller
 
     public function index()
     {
-        $this->feedback->set('HELLO');
+        $this->feedback->set('HELLO! This is from feedback library. I called using session');
         $this->load->template('login/login');
     }
 
