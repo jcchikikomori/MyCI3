@@ -17,37 +17,31 @@ class Login_model extends CI_Model {
     	} else {
     		$user_query = $this->db
                   			->select('*')
-                  			->where('username', $username)
-			                 	->get('users')
-			                 	->result();
-			   
+							->from('users')
+                  			->where('user_name', $username)
+							->get()
+							->row_array();
 			  if (!$user_query) {
 			  	return false;
 			  } else {
 			  	/* Encrypting password using sha1 algorithm
 	    		 * You may also use md5 if you want
 	    		 */
-	    		$hash = sha1($password);
-	    		/*
-	    		$password_query = $this->db
-	                  					->select('*')
-	                  					->where('user_password', $hash)
-					                 		->get('users')
-					                 		->result();
-					 */
-	        if ($hash == $user_query->user_password) {
-	         //preparing array for session
-	       	 $newdata = array(
-			       'username'  => $username,
-			       'email'     => $user_query->user_email,
-			       'logged_in' => TRUE
-						);
-						//set session
-						$this->session->set_userdata($newdata);
-						//within 1200 seconds
-						$this->session->mark_as_temp($newdata, 1200);
-	        	return true;
-	        }
+	    		$hash = md5($password);
+				if ($hash == $user_query['user_password']) {
+				 //preparing array for session
+				 $newdata = array(
+					   'user_id'   => $user_query['user_id'],
+					   'username'  => $username,
+					   'email'     => $user_query['user_email'],
+					   'logged_in' => TRUE
+							);
+							//set session
+							$this->session->set_userdata($newdata);
+							//TODO: incorrect session expiration value
+							//$this->session->mark_as_temp($newdata, 1200);
+					return true;
+				}
 			  }
     	}
     }

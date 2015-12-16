@@ -55,7 +55,12 @@
 	      </ul>
 	      
 	      <ul class="navbar-form navbar-right">
-	          <a href="<?php echo $this->config->item('URL'); ?>/user" class="btn btn-default">Login</a>
+			  <?php if ($this->session->userdata('logged_in') == TRUE) {
+					echo '<a href="' . $this->config->item('URL') . '/user/logout" class="btn btn-default">Logout</a>';
+			 	} else {
+				  	echo '<a href="' . $this->config->item('URL') . '/user" class="btn btn-default">Login</a>';
+				  	//echo $this->session->userdata('username');
+				} ?>
 	      </ul>
 
 	      <ul class="nav navbar-nav navbar-right">

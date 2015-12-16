@@ -22,8 +22,8 @@
 					<div id="display_comment"></div>
 					<form class="form-horizontal" method="post" id="comment_form">
 						<input type="hidden" id="article" value="<?php echo $details['article_id'];?>">
-						<input type="hidden" id="name" name="name" value="pogi ang post nito">
-						<input type="hidden" id="email" name="email" value="sample@ako.com">
+						<input type="hidden" id="name" name="name" value="<?php echo $this->session->userdata('username');?>">
+						<input type="hidden" id="email" name="email" value="<?php echo $this->session->userdata('email');?>">
 						<textarea type="text" class="form-control" rows="4" id="comment" name="comment" placeholder="Leave some comment!"></textarea><br />
 						<input class="btn btn-primary pull-right" id="submit" name="submit" type="submit" value="Submit Comment">
 					</form>
