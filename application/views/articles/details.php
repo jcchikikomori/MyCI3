@@ -20,7 +20,7 @@
 				</div>
 				<div class="panel-body" id="comments" style="display: none;">
 					<div id="display_comment"></div>
-					<form class="form-horizontal" method="post" id="form">
+					<form class="form-horizontal" method="post" id="comment_form">
 						<input type="hidden" id="article" value="<?php echo $details['article_id'];?>">
 						<input type="hidden" id="name" name="name" value="pogi ang post nito">
 						<input type="hidden" id="email" name="email" value="sample@ako.com">
@@ -65,6 +65,7 @@
 	});
 	$(function() {
 		$("#submit").click(function() {
+			$("#submit").addClass("disabled");
 			var name = $("#name").val();
 			var email = $("#email").val();
 			var comment = $("#comment").val();
@@ -72,18 +73,25 @@
 
 			var dataString = 'name='+ name + '&email=' + email + '&comment=' + comment+ '&article_id=' + article_id;
 			if(comment=='') {
-				$("#display_comment").append('<div class="alert alert-danger">ERR! Please provide details below</div>');
-				//alert('Please Give Valid Details');
+				$("#display_comment").append('<div class="alert alert-danger" id="error">ERR! Please provide details below</div>');
+				$("#submit").removeClass("disabled");
+				setTimeout(function(){
+					$("#error").fadeOut();
+				}, 6000);
 			} else {
-				$("#display_comment").fadeIn(100).html('<div class="alert alert-info">Submitting new Comment...</div>');
+				$("#error").hide();
+				$("#display_comment").fadeIn(100).append('<div class="alert alert-info">Submitting new Comment...</div>');
 				$.ajax({
 					type: "POST",
 					url: "<?php echo $this->config->item('URL'); ?>/comment/submit/" + article_id,
 					data: dataString,
 					cache: false,
 					success: function(data){
-						//$("#display_comment").delay(500).fadeOut(300);
-						$("#display_comment").html(data).delay(300).fadeIn();
+						setTimeout(function(){
+							$("textarea#comment").val("");
+							$("#display_comment").html(data);
+							$("#submit").removeClass("disabled");
+						}, 1000);
 					}
 					//error: function() {
 					//	$("#display_comment").append('<div class="alert alert-danger">Sorry! Unable to submit comment. Please try again</div>');
