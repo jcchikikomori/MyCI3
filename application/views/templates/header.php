@@ -72,20 +72,16 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 
-
-	<?php
-		/* FEEDBACK SYSTEM */
-		$m = $this->feedback->get();
-		if (!empty($m)) {
-			echo '<div class="alert alert-info" style="margin: 0px 20px 20px 20px;">' . $m . '</div>';
-		}
+	<!--FEEDBACK SYSTEM-->
+	<?php $m = $this->feedback->get();
+		echo (!empty($m)) ? '<div id="box" class="alert alert-info" style="margin: 0px 20px 20px 20px;">' . $m . '</div>' : '<div id="box"></div>';
 	?>
 
 	<script>
-		$(function() {
-			$("#message").load(function() {
-				//$('').appendTo('#message');
-			});
+		$(document).ready(function () {
+			setTimeout(function(){
+				$('#box').append();
+			}, 1000);
 		});
 	</script>
 
