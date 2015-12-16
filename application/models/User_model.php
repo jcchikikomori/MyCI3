@@ -12,7 +12,6 @@ class User_model extends CI_Model {
     {
     	//login db function here
     	if (!isset($username) && !isset($password)) {
-    		$error = "Required Fields are empty!";
     		return false;
     	} else {
     		//fetch user from database
@@ -42,9 +41,14 @@ class User_model extends CI_Model {
     	}
     }
     
-    function logout($session)
+    function register($array_data)
     {
-    	//logout using sesssion unset
+		$query = $this->db->insert('users', $array_data);
+		if ($query) {
+			return true;
+		} else {
+			return false;
+		}
     }
 
 }

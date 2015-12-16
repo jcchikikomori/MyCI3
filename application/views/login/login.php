@@ -144,7 +144,7 @@
                   </div>
                 </div>
               </form>
-              <form id="register-form" action="" method="post" role="form" style="display: none;">
+              <form id="register-form" action="<?php echo $this->config->item('URL'); ?>/user/register" method="post" role="form" style="display: none;">
                 <div class="form-group">
                   <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
                 </div>
@@ -192,49 +192,89 @@
      e.preventDefault();
    });
 
-   $('#submit_login').on('click',function(){
-     getLoginData();
+   $('#register-submit').on('click',function(){
+     var username = $("#username").val();
+     var email = $("#email").val();
+     var password = $("#password").val();
+     var rpassword = $("#confirm-password").val();
+
+     //var reg_data = 'username='+ username + '&email=' + email + '&password=' + password;
+
+     submit();
+
+     /* FUNCTIONS */
+
+     function check(username, email, password, rpassword) {
+       $.ajax({
+         type: "POST",
+         url: "<?php echo $this->config->item('URL'); ?>/user/register/",
+         data: data,
+         cache: false,
+         success: function(data){
+           setTimeout(function(){
+             $("textarea#comment").val("");
+             $("#display_comment").html(data);
+             $("#submit").removeClass("disabled");
+           }, 1000);
+         }
+       });
+     }
+
+     function submit() {
+       $.ajax({
+         type: "POST",
+         url: "<?php echo $this->config->item('URL'); ?>/user/register/",
+         cache: false,
+         success: function(){
+
+         }
+       });
+     }
    });
 
-   var getLoginData = function(){
+//   $('#submit_login').on('click',function(){
+//     getLoginData();
+//   });
+//
+//   var getLoginData = function(){
+//
+//     login_data = {
+//       username : $('#login_username').val(),
+//       password : $('#login_password').val()
+//     }
+//     console.log(login_data);
+//
+//     createLoginRequest();
+//   }
+//
+//   function createLoginRequest(){
+//
+//     $.ajax({
+//       url : 'login/check',
+//       type: "POST",
+//       data: {
+//             username : $('#login_username').val(),
+//             password : $('#login_password').val()
+//             },
+//
+//       success: function(result){
+//         console.log(result);
+//
+//         if(result == 'correct'){
+//           $('#error_message').css("color", "green");
+//           $('#error_message').text('Correct');
+//         }else if( result == 'incorrect'){
+//           $('#error_message').css("color", "red");
+//           $('#error_message').text('Your username or password is invalid');
+//         }
+//       },
+//       // Error Handling
+//       error: function(){
+//
+//       }
+//     });
 
-     login_data = {
-       username : $('#login_username').val(),
-       password : $('#login_password').val()
-     }
-     console.log(login_data);
-
-     createLoginRequest();
-   }
-
-   function createLoginRequest(){
-
-     $.ajax({
-       url : 'login/check',
-       type: "POST",
-       data: {
-             username : $('#login_username').val(),
-             password : $('#login_password').val()
-             },
-
-       success: function(result){
-         console.log(result);
-
-         if(result == 'correct'){
-           $('#error_message').css("color", "green");
-           $('#error_message').text('Correct');
-         }else if( result == 'incorrect'){
-           $('#error_message').css("color", "red");
-           $('#error_message').text('Your username or password is invalid');
-         }
-       },
-       // Error Handling
-       error: function(){
-
-       }
-     });
-
-   }
+//   }
 
  });
 </script>
