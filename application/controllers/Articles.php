@@ -18,6 +18,7 @@ class Articles extends CI_Controller {
 
     public function details($ar_id)
     {
+        //fetch from db
         $data['details'] = $this->blog_model->get_article($ar_id);
         $data['comments'] = $this->blog_model->get_comments($ar_id);
         $this->load->template('articles/details', $data);

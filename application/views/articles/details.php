@@ -20,13 +20,18 @@
 				</div>
 				<div class="panel-body" id="comments" style="display: none;">
 					<div id="display_comment"></div>
-					<form class="form-horizontal" method="post" id="comment_form">
-						<input type="hidden" id="article" value="<?php echo $details['article_id'];?>">
-						<input type="hidden" id="name" name="name" value="pogi ang post nito">
-						<input type="hidden" id="email" name="email" value="sample@ako.com">
-						<textarea type="text" class="form-control" rows="4" id="comment" name="comment" placeholder="Leave some comment!"></textarea><br />
-						<input class="btn btn-primary pull-right" id="submit" name="submit" type="submit" value="Submit Comment">
-					</form>
+					<?php if ($this->auth->logged_in()) {
+						echo '<form class="form-horizontal" method="post" id="comment_form">
+								<input type="hidden" id="article" value="'.$details['article_id'].'">
+								<input type="hidden" id="name" name="name" value="'.$this->session->userdata('username').'">
+								<input type="hidden" id="email" name="email" value="'.$this->session->userdata('email').'">
+								<textarea type="text" class="form-control" rows="4" id="comment" name="comment" placeholder="Leave some comment!"></textarea><br />
+								<input class="btn btn-primary pull-right" id="submit" name="submit" type="submit" value="Submit Comment">
+							  </form>';
+					} else {
+						echo '<div class="alert alert-danger">You must <a href="' . $this->config->item('URL') . '/user" class="alert-link">Login</a> first!</div>';
+						//echo $this->session->userdata('username');
+					} ?>
 				</div>
 				<div class="panel-footer"></div>
 			</div>
