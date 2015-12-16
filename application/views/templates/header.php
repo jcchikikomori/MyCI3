@@ -55,7 +55,7 @@
 	      </ul>
 	      
 	      <ul class="navbar-form navbar-right">
-			  <?php if ($this->session->userdata('logged_in') == TRUE) {
+			  <?php if ($this->auth->logged_in()) {
 					echo '<a href="' . $this->config->item('URL') . '/user/logout" class="btn btn-default">Logout</a>';
 			 	} else {
 				  	echo '<a href="' . $this->config->item('URL') . '/user" class="btn btn-default">Login</a>';
@@ -71,5 +71,22 @@
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
+
+
+	<?php
+		/* FEEDBACK SYSTEM */
+		$m = $this->feedback->get();
+		if (!empty($m)) {
+			echo '<div class="alert alert-info" style="margin: 0px 20px 20px 20px;">' . $m . '</div>';
+		}
+	?>
+
+	<script>
+		$(function() {
+			$("#message").load(function() {
+				//$('').appendTo('#message');
+			});
+		});
+	</script>
 
 	<!-- ***************************** Then load the body ******************************* -->

@@ -15,6 +15,7 @@ class User extends CI_Controller
 
     public function index()
     {
+        $this->feedback->set('HELLO');
         $this->load->template('login/login');
     }
 
@@ -41,7 +42,8 @@ class User extends CI_Controller
 
     public function logout()
     {
-        session_destroy();
+        //session_destroy();
+        $this->auth->logout();
         redirect($this->config->item('URL'));
     }
 
